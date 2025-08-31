@@ -2,12 +2,13 @@ import axios from "axios";
 
 export const getJudge0LanguageId = (language) => {
   const languageMap = {
-    PYTHON: 71,
-    JAVA: 62,
-    JAVASCRIPT: 63,
+    "PYTHON": 71,
+    "JAVA": 62,
+    "JAVASCRIPT": 63,
   };
   return languageMap[language.toUpperCase()];
 };
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export const pollBatchResults = async (tokens) => {
   while (true) {
@@ -51,6 +52,8 @@ export const submitBatch = async (submissions) => {
       },
     }
   );
+
+  console.log("tokens", data);
 
   return data;
 };
